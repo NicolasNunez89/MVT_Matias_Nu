@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AppMVT'
+    'AppMVT',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/exa21652/Documents/CoderHousePython/MVT_Matias_Nuñez/Proyecto/plantillas'],
+        'DIRS': ['./AppMVT/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
