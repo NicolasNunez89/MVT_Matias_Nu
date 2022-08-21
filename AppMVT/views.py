@@ -5,12 +5,16 @@ from time import time
 #from os import listxattr
 from django.http import HttpResponse
 from django.shortcuts import render , HttpResponse
-from AppMVT.forms import Familiar
+from AppMVT.models import Familiar
+from AppMVT.forms import CargaFamiliar
+
+def inicio(request):
+    return render(request,"inicio.html")
 
 def carga_familiar(request):
     
     if request.method == "POST":
-        miFormulario = Familiar(request.POST,request.user)
+        miFormulario = CargaFamiliar(request.POST)
         print(miFormulario)
         
         if miFormulario.is_valid:
@@ -19,8 +23,15 @@ def carga_familiar(request):
             print(familia)
             familia.save()
             #infor=miFormulario.cleaned_data
-            return render(request)
+            return render(request, "inicio.html")
     else:
-        miFormulario=Familiar()
+        miFormulario=CargaFamiliar()
     
     return render(request, "template.html", {"miFormulario": miFormulario})
+
+
+def mostrar(request):
+    
+      familia = Familiar.objects.all
+      
+      return render(request, "mostrar_Familiar.html", {"familia":familia} )
